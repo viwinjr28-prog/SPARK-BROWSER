@@ -11,8 +11,7 @@ permissions:
 
 jobs:
   build:
-    # Use GitHub's currently supported macOS image instead of the unavailable macos-14 image.
-    runs-on: macos-latest
+    runs-on: macos-14
 
     steps:
       - name: Get Spark Browser files
@@ -27,12 +26,12 @@ jobs:
         run: npm install
 
       - name: Build Spark Browser DMG
-        run: npm run dist -- --mac dmg --universal
+        run: npm run dist -- --mac dmg --universal --publish never
 
       - name: Upload DMG
         uses: actions/upload-artifact@v4
         with:
-          name: Spark-Browser-DMG
+          name: Spark-Browser-macOS-DMG
           path: dist/*.dmg
           if-no-files-found: error
           retention-days: 14
