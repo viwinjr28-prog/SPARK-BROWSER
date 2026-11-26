@@ -1,0 +1,32 @@
+{
+  "name": "spark-browser",
+  "version": "1.0.0",
+  "description": "Spark Browser \u2014 a custom desktop browser built with Electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^35.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "com.sparkos.browser",
+    "productName": "Spark Browser",
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        "dmg"
+      ],
+      "artifactName": "Spark-Browser-${version}-macOS-${arch}.${ext}"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}

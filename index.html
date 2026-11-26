@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spark Browser</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="spark-mark">✦</span><span>Spark</span></div>
+    <div class="window-dots"><i></i><i></i><i></i></div>
+    <div class="tabs" id="tabs"></div>
+    <button class="new-tab" id="newTab" title="New tab">＋</button>
+  </header>
+
+  <nav class="toolbar">
+    <button class="tool" id="back" title="Back">‹</button>
+    <button class="tool" id="forward" title="Forward">›</button>
+    <button class="tool" id="reload" title="Reload">↻</button>
+    <button class="tool home" id="home" title="Home">⌂</button>
+    <form class="address-wrap" id="addressForm">
+      <span class="secure-icon">◈</span>
+      <input id="address" autocomplete="off" spellcheck="false" placeholder="Search or enter a website">
+      <button class="go" type="submit">Go</button>
+    </form>
+    <button class="tool" id="bookmark" title="Bookmark this page">☆</button>
+    <button class="profile" title="Spark Browser">S</button>
+  </nav>
+
+  <main id="browser">
+    <section class="welcome" id="welcome">
+      <div class="welcome-mark">✦</div>
+      <p class="eyebrow">YOUR WEB, YOUR WAY</p>
+      <h1>Make the web <span>yours.</span></h1>
+      <p class="sub">A fresh start, powered by Spark.</p>
+      <form id="welcomeForm" class="welcome-search">
+        <span>⌕</span>
+        <input id="welcomeInput" autocomplete="off" placeholder="Search the web or enter a URL">
+        <button type="submit">Search</button>
+      </form>
+      <div class="quick-links">
+        <button data-url="https://www.google.com">Google</button>
+        <button data-url="https://www.youtube.com">YouTube</button>
+        <button data-url="https://www.wikipedia.org">Wikipedia</button>
+        <button data-url="https://www.roblox.com">Roblox</button>
+      </div>
+      <p class="footnote">Spark Browser · Built for exploring</p>
+    </section>
+  </main>
+  <script src="renderer.js"></script>
+</body>
+</html>
