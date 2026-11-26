@@ -3,51 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10131b">
   <title>Spark Browser</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand"><span class="spark-mark">✦</span><span>Spark</span></div>
-    <div class="window-dots"><i></i><i></i><i></i></div>
-    <div class="tabs" id="tabs"></div>
-    <button class="new-tab" id="newTab" title="New tab">＋</button>
-  </header>
-
-  <nav class="toolbar">
-    <button class="tool" id="back" title="Back">‹</button>
-    <button class="tool" id="forward" title="Forward">›</button>
-    <button class="tool" id="reload" title="Reload">↻</button>
-    <button class="tool home" id="home" title="Home">⌂</button>
-    <form class="address-wrap" id="addressForm">
-      <span class="secure-icon">◈</span>
-      <input id="address" autocomplete="off" spellcheck="false" placeholder="Search or enter a website">
-      <button class="go" type="submit">Go</button>
-    </form>
-    <button class="tool" id="bookmark" title="Bookmark this page">☆</button>
-    <button class="profile" title="Spark Browser">S</button>
-  </nav>
-
-  <main id="browser">
-    <section class="welcome" id="welcome">
-      <div class="welcome-mark">✦</div>
-      <p class="eyebrow">YOUR WEB, YOUR WAY</p>
-      <h1>Make the web <span>yours.</span></h1>
-      <p class="sub">A fresh start, powered by Spark.</p>
-      <form id="welcomeForm" class="welcome-search">
-        <span>⌕</span>
-        <input id="welcomeInput" autocomplete="off" placeholder="Search the web or enter a URL">
-        <button type="submit">Search</button>
-      </form>
-      <div class="quick-links">
-        <button data-url="https://www.google.com">Google</button>
-        <button data-url="https://www.youtube.com">YouTube</button>
-        <button data-url="https://www.wikipedia.org">Wikipedia</button>
-        <button data-url="https://www.roblox.com">Roblox</button>
+  <div class="app-shell">
+    <header class="chrome">
+      <div class="topline">
+        <div class="brand"><span class="brand-symbol">✦</span><span>spark</span></div>
+        <div class="tabs" id="tabs" aria-label="Tabs"></div>
+        <button class="icon-button new-tab" id="newTab" title="New tab" aria-label="New tab">＋</button>
       </div>
-      <p class="footnote">Spark Browser · Built for exploring</p>
-    </section>
-  </main>
+      <nav class="toolbar">
+        <div class="nav-group">
+          <button class="icon-button" id="back" title="Back" aria-label="Back">‹</button>
+          <button class="icon-button" id="forward" title="Forward" aria-label="Forward">›</button>
+          <button class="icon-button" id="reload" title="Reload" aria-label="Reload">↻</button>
+        </div>
+        <form class="address-wrap" id="addressForm">
+          <span class="site-indicator" id="siteIndicator">✧</span>
+          <input id="address" autocomplete="off" spellcheck="false" placeholder="Search or enter an address">
+          <button class="clear-address" id="clearAddress" type="button" title="Clear">×</button>
+          <button class="go-button" type="submit" title="Go">↵</button>
+        </form>
+        <div class="action-group">
+          <button class="icon-button" id="bookmark" title="Bookmark this page" aria-label="Bookmark">☆</button>
+          <button class="icon-button" id="bookmarksToggle" title="Show bookmarks" aria-label="Show bookmarks">▤</button>
+          <button class="icon-button" id="themeToggle" title="Toggle appearance" aria-label="Toggle appearance">☼</button>
+          <button class="profile-button" id="menuButton" title="Spark menu">S</button>
+        </div>
+      </nav>
+      <div class="bookmarks-bar" id="bookmarksBar">
+        <span class="bar-label">FAVOURITES</span>
+        <div id="bookmarkItems" class="bookmark-items"></div>
+        <button class="add-favourite" id="addFavourite" title="Add current page">＋</button>
+      </div>
+    </header>
+
+    <main id="browser" class="browser-area">
+      <section class="welcome" id="welcome">
+        <div class="welcome-orb"><span>✦</span></div>
+        <p class="eyebrow">A LITTLE MORE YOU</p>
+        <h1>Good things<br><span>start here.</span></h1>
+        <p class="welcome-copy">A calmer way to explore the internet.</p>
+        <form id="welcomeForm" class="welcome-search">
+          <span class="search-symbol">⌕</span>
+          <input id="welcomeInput" autocomplete="off" placeholder="Search the web or enter a website">
+          <button type="submit">Explore <span>↗</span></button>
+        </form>
+        <div class="quick-links">
+          <button class="quick-link" data-url="https://www.google.com"><span class="quick-icon google">G</span><span>Google</span></button>
+          <button class="quick-link" data-url="https://www.youtube.com"><span class="quick-icon youtube">▶</span><span>YouTube</span></button>
+          <button class="quick-link" data-url="https://www.roblox.com"><span class="quick-icon roblox">◇</span><span>Roblox</span></button>
+          <button class="quick-link" data-url="https://www.wikipedia.org"><span class="quick-icon wiki">W</span><span>Wikipedia</span></button>
+        </div>
+        <div class="welcome-bottom"><span class="status-dot"></span> Spark Browser <span class="version">2.0 · Liquid Glass</span></div>
+      </section>
+      <aside class="menu-popover" id="menuPopover">
+        <div class="popover-heading">Spark Browser <span>2.0</span></div>
+        <button id="menuHome">⌂ <span>New tab</span></button>
+        <button id="menuBookmarks">☆ <span>Bookmarks</span></button>
+        <button id="menuTheme">◐ <span>Toggle appearance</span></button>
+        <div class="popover-note">Made for your web.</div>
+      </aside>
+      <div class="toast" id="toast"></div>
+    </main>
+  </div>
   <script src="renderer.js"></script>
 </body>
 </html>

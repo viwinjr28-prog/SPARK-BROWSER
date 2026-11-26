@@ -1,31 +1,22 @@
-# Spark Browser
+# Spark Browser 2.0 — Liquid Glass
 
-Spark Browser is a starter desktop browser with a custom SparkOS-inspired interface, built with Electron.
+A redesigned Electron browser shell with a translucent Liquid Glass-inspired interface.
 
-## Build a Mac DMG with GitHub Actions (no local commands)
+## Included
+- Redesigned tab strip and navigation toolbar
+- Frosted-glass styling, layered gradients, subtle reflections and motion
+- New-tab search and quick links
+- Persistent bookmarks/favourites bar
+- Light/dark appearance toggle
+- Small app menu
+- Keyboard shortcuts: Cmd/Ctrl+T (new tab), Cmd/Ctrl+L (focus address), Cmd/Ctrl+W (close tab)
 
-1. Create a new GitHub repository named `spark-browser`.
-2. Upload **all files and folders** from this project to the repository. Make sure the `.github/workflows/build-dmg.yml` file is included.
-3. Open the repository's **Actions** tab.
-4. Select **Build Spark Browser DMG** in the left sidebar.
-5. Click **Run workflow** and confirm with the green **Run workflow** button.
-6. Wait for the workflow to finish, open the completed run, then find **Artifacts** at the bottom.
-7. Download `Spark-Browser-macOS-DMG.zip` and unzip it to get `Spark-Browser-1.0.0-macOS-universal.dmg`.
+## Build
+1. Install Node.js (LTS).
+2. Open this folder in Terminal.
+3. Run `npm install`.
+4. Run `npm start` to test.
+5. Run `npm run dist` to package.
 
-The workflow also runs automatically when you push a version tag beginning with `v`.
-
-## What's included
-
-- Multiple tabs
-- Address bar with web search
-- Back, forward, reload and home
-- Quick links on the new-tab page
-- Basic saved bookmarks
-- Persistent browser session storage
-- GitHub Actions workflow to build a universal macOS DMG
-
-## Important notes
-
-- GitHub Actions builds the DMG in the cloud; this project does not contain a prebuilt DMG.
-- The DMG is not code-signed or notarized. macOS may show a security warning when opening it. A Developer ID certificate and Apple notarization setup are needed for a smoother public release.
-- This is an early browser starter. Add and test a download manager, permissions handling, popup handling, safe-browsing protections, and more complete bookmark management before public release.
+## Notes
+This is a visual and usability overhaul of the existing Electron starter. It still uses Electron's embedded Chromium webview for page rendering; it does not turn Chromium into three separate browser engines. Browser extensions, full password syncing, private-window isolation, tracking protection, and production-grade download/history management are not implemented in this starter. The Liquid Glass appearance is an original design inspired by translucent desktop UI patterns, not copied Safari/Chrome/Firefox code.
