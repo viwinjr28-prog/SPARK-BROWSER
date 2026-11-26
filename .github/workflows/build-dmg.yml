@@ -1,4 +1,3 @@
-
 name: Build Spark Browser DMG
 
 on:
@@ -12,7 +11,8 @@ permissions:
 
 jobs:
   build:
-    runs-on: macos-14
+    # Use GitHub's currently supported macOS image instead of the unavailable macos-14 image.
+    runs-on: macos-latest
 
     steps:
       - name: Get Spark Browser files
@@ -35,3 +35,4 @@ jobs:
           name: Spark-Browser-DMG
           path: dist/*.dmg
           if-no-files-found: error
+          retention-days: 14
